@@ -1,0 +1,188 @@
+{% extends "master.html" %}
+
+{% block title %}
+    Lista de Aprendices SENA
+{% endblock %}
+
+{% block content %}
+<style>
+    .aprendices-container {
+        max-width:1000px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+    }
+
+    .header-section {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .header-section h1 {
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: #161717ff;
+        margin-bottom: 0.5rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .count-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #39a331 0%, #2d7a28 100%);
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-top: 1rem;
+    }
+
+    .aprendices-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .aprendiz-item {
+        margin-bottom: 1rem;
+    }
+
+    .aprendiz-link {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem 2rem;
+        background: white;
+        border: 1px solid #e8e8e8;
+        border-radius: 12px;
+        text-decoration: none;
+        color: #2c3e50;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .aprendiz-link::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background: linear-gradient(135deg, #39a331 0%, #2d7a28 100%);
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+    }
+
+    .aprendiz-link:hover {
+        transform: translateX(8px);
+        box-shadow: 0 8px 20px rgba(57, 163, 49, 0.15);
+        border-color: #39a331;
+    }
+
+    .aprendiz-link:hover::before {
+        transform: scaleY(1);
+    }
+
+    .aprendiz-avatar {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #39a331 0%, #2d7a28 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 1.2rem;
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .aprendiz-info {
+        flex: 1;
+    }
+
+    .aprendiz-name {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #2c3e50;
+    }
+
+    .aprendiz-arrow {
+        color: #999;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+
+    .aprendiz-link:hover .aprendiz-arrow {
+        color: #39a331;
+        transform: translateX(5px);
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 4rem 2rem;
+        color: #999;
+    }
+
+    .empty-state p {
+        font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+        .aprendices-container {
+            padding: 2rem 1rem;
+        }
+
+        .header-section h1 {
+            font-size: 2rem;
+        }
+
+        .aprendiz-link {
+            padding: 1.2rem 1.5rem;
+        }
+
+        .aprendiz-avatar {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+            margin-right: 1rem;
+        }
+
+        .aprendiz-name {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<div class="aprendices-container">
+    <div class="header-section">
+        <h1>APRENDICES</h1>
+        <span class="count-badge">Hay {{ myaprendices|length }} aprendices</span>
+    </div>
+
+    {% if myaprendices %}
+        <ul class="aprendices-list">
+            {% for x in myaprendices %}
+            <li class="aprendiz-item">
+                <a href="/details{{ x.id }}" class="aprendiz-link">
+                    <div class="aprendiz-avatar">
+                        {{ x.nombre|first|upper }}{{ x.apellido|first|upper }}
+                    </div>
+                    <div class="aprendiz-info">
+                        <span class="aprendiz-name">{{ x.nombre }} {{ x.apellido }}</span>
+                    </div>
+                    <span class="aprendiz-arrow">→</span>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="empty-state">
+            <p>No hay aprendices registrados</p>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

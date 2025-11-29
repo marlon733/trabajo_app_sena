@@ -1,0 +1,47 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Details about {{ myaprendiz.nombre }} {{ myaprendiz.apellido }}
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ myaprendiz.nombre }} {{ myaprendiz.apellido }}</h1>
+ <div>
+    <span class="inf"> documento de identidad</span>
+   <span class="value"> {{ myaprendiz.documento_identidad }}</span>
+</div> 
+
+ <div>
+    <span class="inf"> El telefono es:</span>
+   <span class="value"> {{ myaprendiz.telefono }}</span>
+</div> 
+
+
+ <div>
+    <span class="inf"> El nombre es:</span>
+   <span class="value"> {{ myaprendiz.nombre}}</span>
+</div> 
+
+
+ <div>
+    <span class="inf"> Imail del usuario es:</span>
+   <span class="value"> {{ myaprendiz.email }}</span>
+</div> 
+
+
+ <div>
+    <span class="inf"> La fecha de nacimiento </span>
+   <span class="value"> {{ myaprendiz.fecha_nacimiento }}</span>
+</div> 
+ <div>
+    <span class="inf"> ciudad</span>
+   <span class="value"> {{ myaprendiz.ciudad }}</span>
+    <div>
+    <span class="inf"> Programa que pertenece</span>
+   <span class="value"> {{ myaprendiz.programa }}</span>
+</div> 
+ 
+
+<p> <a href="/aprendices">aprendices</a></p>
+{% endblock %}

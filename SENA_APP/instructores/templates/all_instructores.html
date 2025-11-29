@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+
+{% block title %}
+    my sena lista DE INSTRUCTORES
+{% endblock %}    
+{% block content %}
+
+  <h1>INSTRUCTORES</h1>
+  <p>hay {{ myinstructores|length }} INSTRUCTORES</p>
+   
+<ul>
+  {% for x in myinstructores %}
+    <li><a href="details/{{  x.id }}">{{ x.nombre }} {{ x.apellido }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

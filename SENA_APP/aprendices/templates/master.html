@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SENA APP{% endblock %}</title>
+    
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+   <style>
+       
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-color: #093609;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: #2c2a2a;
+        line-height: 1.6;
+    }
+
+    /* Estilo del Navbar */
+    .navbar {
+        background-color: #ffffff;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .navbar-brand {
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #0c6104 !important;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-brand:hover {
+        color: #053610 !important;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        color: #0e4808 !important;
+        margin-left: 1.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        color: #ffffff !important;
+        background-color: #39a331;
+        transform: translateY(-2px);
+    }
+
+    /* Contenedor Principal */
+    .main-container {
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+        padding: 3rem 4rem;
+        margin: 1.5rem;
+        margin-bottom: 1.5rem;
+        min-height: 85vh;
+        width: calc(100% - 3rem);
+        animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Títulos */
+    h1 {
+        font-weight: 300;
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        color: #0c6104;
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        font-weight: 400;
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+        color: #0e4808;
+    }
+
+    h3 {
+        font-weight: 500;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #2c2a2a;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+        .main-container {
+            width: calc(100% - 2rem);
+            margin: 1rem;
+            padding: 2.5rem 3rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            padding: 1rem;
+        }
+
+        .nav-link {
+            margin-left: 0;
+            margin-top: 0.5rem;
+        }
+
+        .main-container {
+            width: calc(100% - 1rem);
+            margin: 0.5rem;
+            padding: 2rem 1.5rem;
+            border-radius: 15px;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .main-container {
+            width: calc(100% - 0.5rem);
+            margin: 0.25rem;
+            padding: 1.5rem 1rem;
+        }
+
+        h1 {
+            font-size: 1.7rem;
+        }
+    }
+
+    /* Utilidades adicionales */
+    .btn-primary {
+        background: linear-gradient(135deg, #39a331 0%, #2d7a28 100%);
+        border: none;
+        padding: 0.8rem 2rem;
+        border-radius: 8px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(57, 163, 49, 0.3);
+    }
+   </style>
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">SENA APP</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="/">Inicio</a>
+                    <a class="nav-link" href="/aprendices">Aprendices</a>
+                    <a class="nav-link" href="/instructores">Instructores</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer class="text-center py-4 text-muted" style="font-size: 0.8rem;">
+        <p>&copy; 2025 SENA APP - Sistema de Gestión</p>
+    </footer>
+
+</body>
+</html>

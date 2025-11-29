@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="db.sqlite3" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3907"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="instructores_instructor" custom_title="0" dock_id="2" table="4,23:maininstructores_instructor"/><dock_state state="000000ff00000000fd00000001000000020000043c000002b6fc0100000002fb000000160064006f0063006b00420072006f007700730065003101000000000000043c0000000000000000fb000000160064006f0063006b00420072006f007700730065003201000000000000043c0000011e00ffffff000002750000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="aprendices_aprendiz" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="29"/><column index="2" value="152"/><column index="3" value="78"/><column index="4" value="70"/><column index="5" value="163"/><column index="6" value="78"/><column index="7" value="107"/><column index="8" value="78"/><column index="9" value="85"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="instructores_instructor" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="29"/><column index="2" value="130"/><column index="3" value="99"/><column index="4" value="51"/><column index="5" value="52"/><column index="6" value="54"/><column index="7" value="44"/><column index="8" value="107"/><column index="9" value="45"/><column index="10" value="59"/><column index="11" value="96"/><column index="12" value="77"/><column index="13" value="105"/><column index="14" value="42"/><column index="15" value="108"/><column index="16" value="89"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">INSERT INTO instructores_instructor (
+    documento_identidad, 
+    tipo_documento, 
+    nombre, 
+    apellido, 
+    telefono, 
+    correo, 
+    fecha_nacimiento, 
+    ciudad, 
+    direccion, 
+    nivel_educativo, 
+    especialidad, 
+    anos_experiencia, 
+    activo, 
+    fecha_vinculacion, 
+    fecha_registro
+) VALUES
+('1010202030', 'CC', 'Juan', 'Pérez', '3001234567', 'juan.perez@email.com', '1985-05-15', 'Bogotá', 'Calle 123 #45-67', 'MAE', 'Desarrollo de Software', 8, 1, '2020-02-01', '2025-11-28 08:30:00'),
+('1020304050', 'CE', 'Maria', 'González', '3109876543', 'maria.gonzalez@email.com', '1990-08-22', 'Medellín', 'Carrera 10 #20-30', 'ESP', 'Diseño Gráfico', 5, 1, '2021-03-15', '2025-11-28 08:31:00'),
+('1030405060', 'CC', 'Carlos', 'Rodríguez', '3151112233', 'carlos.rod@email.com', '1982-11-30', 'Cali', 'Avenida 6N #12-14', 'DOC', 'Matemáticas', 12, 1, '2019-01-10', '2025-11-28 08:32:00'),
+('1040506070', 'CC', 'Ana', 'Martínez', '3203334455', 'ana.martinez@email.com', '1995-02-14', 'Barranquilla', 'Calle 72 #45-10', 'PRE', 'Inglés', 3, 1, '2022-07-20', '2025-11-28 08:33:00'),
+('1050607080', 'TI', 'Luis', 'Hernández', '3005556677', 'luis.hernandez@email.com', '1998-09-05', 'Bucaramanga', 'Carrera 27 #30-40', 'TEC', 'Mecánica Automotriz', 2, 1, '2023-01-15', '2025-11-28 08:34:00'),
+('1060708090', 'CC', 'Laura', 'López', '3117778899', 'laura.lopez@email.com', '1988-04-12', 'Pereira', 'Calle 14 #5-20', 'MAE', 'Gestión Empresarial', 7, 1, '2020-11-01', '2025-11-28 08:35:00'),
+('1070809000', 'PAS', 'John', 'Smith', '3229990011', 'john.smith@email.com', '1980-12-25', 'Cartagena', 'Bocagrande Cra 2 #8-9', 'DOC', 'Física Pura', 15, 0, '2018-05-10', '2025-11-28 08:36:00'),
+('1080901010', 'CC', 'Sofía', 'Ramírez', '3132223344', 'sofia.ramirez@email.com', '1992-06-18', 'Manizales', 'Carrera 23 #50-10', 'ESP', 'Psicología', 6, 1, '2021-08-05', '2025-11-28 08:37:00'),
+('1090102020', 'CE', 'Pedro', 'Sánchez', '3014445566', 'pedro.sanchez@email.com', '1987-03-30', 'Cúcuta', 'Av. Cero #10-12', 'TGL', 'Electrónica', 9, 1, '2019-09-20', '2025-11-28 08:38:00'),
+('1100203030', 'CC', 'Elena', 'Torres', '3186667788', 'elena.torres@email.com', '1994-07-07', 'Ibagué', 'Carrera 5 #37-20', 'PRE', 'Contabilidad', 4, 1, '2022-02-28', '2025-11-28 08:39:00');</sql><current_tab id="0"/></tab_sql></sqlb_project>
