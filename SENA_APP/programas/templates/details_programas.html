@@ -1,0 +1,46 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Details about {{ myprograma.nombre }} {{ myprograma.apellido}}
+{% endblock %}
+
+{% block content %}
+
+<h1>{{    myprograma.nombre }} {{    myprograma.apellido }}</h1>
+ <div>
+    <span class="inf">modalidad</span>
+   <span class="value"> {{ myprograma.modalidad}}</span>
+</div> 
+
+ <div>
+    <span class="inf"> Duracion:</span>
+   <span class="value"> {{ myprograma.duracion_meses }}</span>
+</div> 
+
+
+ <div>
+    <span class="inf"> El nombre es:</span>
+   <span class="value"> {{ myprograma.nombre}}</span>
+ </div> 
+
+
+ <div>
+    <span class="inf"> Duracion de meses:</span>
+   <span class="value"> {{    myprograma.duracion_horas }}</span>
+</div> 
+
+<div>
+    <span class="inf"> La fecha de nacimiento </span>
+   <span class="value"> {{ myprograma.fecha_vinculacion }}</span>
+</div> 
+ <div>
+    <span class="inf">COMPETENCIA</span>
+   <span class="value"> {{ myprograma.competencias}}</span>
+    <div>
+    <span class="inf"> DESCRIPCION</span>
+   <span class="value"> {{ myprograma.descripcion }}</span>
+</div> 
+ 
+
+<p> <a href="/programas">PROGRAMAS</a></p>
+{% endblock %}

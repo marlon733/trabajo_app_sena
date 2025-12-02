@@ -11,13 +11,15 @@ def instructores(request):
     'myinstructores': myinstructores,
   }
   return HttpResponse(template.render(context, request))
+
 def details(request, id):
   myinstructor = Instructor.objects.get(id=id)
-  template = loader.get_template('details.html')
+  template = loader.get_template('details_instructores.html')
   context = {
     'myinstructor': myinstructor,
   }
   return HttpResponse(template.render(context, request))
+
 def main(request):
   template = loader.get_template('main.html')
   return HttpResponse(template.render())

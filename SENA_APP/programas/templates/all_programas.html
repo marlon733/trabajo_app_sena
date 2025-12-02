@@ -1,15 +1,15 @@
 {% extends "master.html" %}
 
 {% block title %}
-    my sena lista DE INSTRUCTORES
+    my sena lista DE PROGRAMAS
 {% endblock %}    
 {% block content %}
 
-  <h1>APRENDICES</h1>
-  <p>hay {{ myaprendices|length }} APRENDICES</p> 
+  <h1>INSTRUCTORES</h1>
+  <p>hay {{  myprogramas|length }} PROGRAMAS</p>
    
 <ul>
-  {% for x in myaprendices %}
+  {% for x in  myprogramas %}
     <li><a href="details/{{  x.id }}">{{ x.nombre }} {{ x.apellido }}</a></li>
   {% endfor %}
 </ul>
