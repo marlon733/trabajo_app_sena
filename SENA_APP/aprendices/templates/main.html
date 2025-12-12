@@ -1,10 +1,102 @@
 {% extends "master.html" %}
 
-{% block title %}SENA_APP{% endblock %}
+{% block title %}Inicio - SENA APP{% endblock %}
+
 {% block content %}
-<center><h1>BIENVENIDO A LA APP SOY SENA</h1> </center>
 
+<style>
+    /* Contenedor del título principal */
+    .hero-section {
+        text-align: center;
+        margin-bottom: 3rem;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 2rem;
+    }
 
+    .hero-title {
+        color: #093609; /* Verde oscuro serio */
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 1rem;
+    }
 
+    /* Estilo de la imagen principal */
+    .sena-hero-image {
+        width: 100%;
+        max-width: 800px;
+        height: 350px;
+        object-fit: cover; /* Recorta la imagen para que encaje bien sin deformarse */
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
 
-{%endblock%}
+    /* Tarjetas de Misión y Visión */
+    .corporate-card {
+        background: #ffffff;
+        border: 1px solid #e0e0e0; /* Borde sutil */
+        border-top: 4px solid #39A900; /* Línea verde superior institucional */
+        padding: 2.5rem;
+        height: 100%;
+        border-radius: 8px;
+        transition: all 0.3s ease; /* Mantiene la dinámica suave */
+        position: relative;
+    }
+
+    /* Efecto Hover: Se levanta sutilmente y aumenta la sombra */
+    .corporate-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        border-top-color: #0c6104;
+    }
+
+    .card-title {
+        color: #39A900;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #f0f0f0;
+        display: inline-block;
+    }
+
+    .card-text {
+        color: #4a4a4a;
+        text-align: justify; /* Justificado para verse más ordenado */
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+</style>
+
+<div class="hero-section">
+    <h1 class="hero-title">Bienvenidos al Sistema de Gestión</h1>
+    <p class="text-muted">Servicio Nacional de Aprendizaje - SENA</p>
+    
+    <img src="https://www.sena.edu.co/es-co/noticias/PublishingImages/aprendices_sena_general.jpg" 
+         alt="Sede y Aprendices SENA" 
+         class="sena-hero-image">
+</div>
+
+<div class="row g-5">
+    <div class="col-md-6">
+        <div class="corporate-card">
+            <h3 class="card-title">Misión</h3>
+            <p class="card-text">
+                El SENA está encargado de cumplir la función que le corresponde al Estado de invertir en el desarrollo social y técnico de los trabajadores colombianos, ofreciendo y ejecutando la formación profesional integral, para la incorporación y el desarrollo de las personas en actividades productivas que contribuyan al desarrollo social, económico y tecnológico del país.
+            </p>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="corporate-card">
+            <h3 class="card-title">Visión</h3>
+            <p class="card-text">
+                Para el año 2026, el SENA estará a la vanguardia de la cualificación del talento humano, tanto a nivel nacional como internacional. Esto se logrará a través de la formación profesional integral, el empleo, el emprendimiento y el desarrollo tecnológico, contribuyendo así a la competitividad y productividad de las empresas y del país.
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

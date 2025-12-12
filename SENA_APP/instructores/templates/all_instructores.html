@@ -1,16 +1,126 @@
 {% extends "master.html" %}
 
 {% block title %}
-    my sena lista DE INSTRUCTORES
-{% endblock %}    
+  Lista de Instructores - SENA
+{% endblock %}
+
 {% block content %}
 
-  <h1>INSTRUCTORES</h1>
-  <p>hay {{ myinstructores|length }} INSTRUCTORES</p>
-   
-<ul>
-  {% for x in myinstructores %}
-    <li><a href="details/{{  x.id }}">{{ x.nombre }} {{ x.apellido }}</a></li>
-  {% endfor %}
-</ul>
+<style>
+  /* Estilos del Contenedor Principal (Igual que Programas) */
+  .list-container {
+    max-width: 800px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  /* Título de la página con subrayado verde */
+  .page-title {
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #39A900; /* Línea verde característica */
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+  
+  .header-wrapper {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  /* Contador de registros (Estilo píldora oscura) */
+  .counter-badge {
+    text-align: center;
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: 10px;
+  }
+  
+  .counter-number {
+    background-color: #333;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    vertical-align: middle;
+  }
+
+  /* Lista de Instructores */
+  .instructor-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .instructor-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: all 0.2s ease; /* Suavizado para la animación */
+  }
+
+  .instructor-item:hover {
+    background-color: #f4f9f4; /* Fondo verde muy suave al pasar el mouse */
+    transform: translateX(5px); /* Pequeño movimiento a la derecha */
+  }
+
+  .instructor-name {
+    font-size: 1.05rem;
+    color: #444;
+    font-weight: 600;
+  }
+
+  /* Botón de acción (Estilo Píldora Verde) */
+  .btn-instructor {
+    background-color: #39A900; /* Verde SENA */
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 20px; /* Bordes muy redondeados */
+    font-size: 0.85rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(57, 169, 0, 0.3);
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+
+  .btn-instructor:hover {
+    background-color: #2e8b00; /* Verde más oscuro */
+    box-shadow: 0 4px 8px rgba(57, 169, 0, 0.4);
+  }
+</style>
+
+<div class="list-container">
+    <div class="header-wrapper">
+        <h1 class="page-title">Instructores</h1>
+        
+        <p class="counter-badge">
+           Total registrados: <span class="counter-number">{{ myinstructores|length }}</span>
+        </p> 
+    </div>
+
+    <ul class="instructor-list">
+      {% for x in myinstructores %}
+        <li class="instructor-item">
+            <span class="instructor-name">
+                {{ x.nombre }} {{ x.apellido }}
+            </span>
+            
+            <a href="details/{{ x.id }}" class="btn-instructor">
+                Ver Perfil
+            </a>
+        </li>
+      {% endfor %}
+    </ul>
+</div>
+
 {% endblock %}

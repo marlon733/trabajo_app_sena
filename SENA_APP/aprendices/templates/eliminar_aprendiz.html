@@ -1,0 +1,27 @@
+ {% extends "master.html" %}
+{% block title %}Eliminar Aprendiz{% endblock %}
+{% block content %}
+    <h2>Eliminar Aprendiz</h2>
+    <form method="post">
+        {% csrf_token %}
+        <p>¿Está seguro que desea eliminar al siguiente aprendiz?</p>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ aprendiz.nombre_completo }}</h5>
+                <p class="card-text">
+                    <strong>Documento de identidad:</strong> {{ aprendiz.documento_identificacion }}<br>
+                    <strong>Nombre:</strong> {{ aprendiz.nombre }}<br>
+                    <strong>Apellido:</strong> {{ aprendiz.apellido }}<br>
+                    <strong>Telefono:</strong> {{ aprendiz.telefono }}<br>
+                    <strong>Correo:</strong> {{ aprendiz.email }}<br>
+                    <strong>ciudad:</strong> {{ aprendiz.ciudad }}<br>
+                    <strong>direccion:</strong> {{ aprendiz.direccion }}<br>
+                </p>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+        <a href="/aprendices" class="btn btn-secondary">Volver a Aprendices</a>
+    </form>
+    
+{% endblock %}

@@ -1,0 +1,12 @@
+ {% extends "master.html" %}
+{% block title %}Editar Aprendiz{% endblock %}
+{% block content %}
+    <h2>Editar Aprendiz</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-sm btn-success">Editar</button>
+        <a href="/aprendices" class="btn btn-secondary">Volver a Aprendices</a>
+    </form>
+    
+{% endblock %}

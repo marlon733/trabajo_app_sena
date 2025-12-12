@@ -17,11 +17,6 @@ class Programa(models.Model):
         ('VIR', 'Virtual'),
         ('MIX', 'Mixta'),
     ]
-    MODALIDAD_CHOICES = [
-        ('PRE', 'Presencial'),
-        ('VIR', 'Virtual'),
-        ('MIX', 'Mixta'),
-    ]
 
     ESTADO_CHOICES = [
         ('ACT', 'Activo'),

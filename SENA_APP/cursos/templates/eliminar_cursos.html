@@ -1,0 +1,30 @@
+ {% extends "master.html" %}
+{% block title %}Eliminar curso{% endblock %}
+{% block content %}
+    <h2>Eliminar curso</h2>
+    <form method="post">
+        {% csrf_token %}
+        <p>¿Está seguro que desea eliminar al siguiente curso?</p>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ curso.nombre_completo }}</h5>
+                <p class="card-text">
+                    <strong>Código:</strong> {{ curso.codigo }}<br>
+                    <strong>Nombre:</strong> {{ curso.nombre }}<br>
+                    <strong>Programa:</strong> {{ curso.programa }}<br>
+                    <strong>Instructor Coordinador:</strong> {{ curso.instructor_coordinador }}<br>
+                    <strong>Instructores:</strong> {{ curso.instructores }}<br>
+                    <strong>Aprendices:</strong> {{ curso.aprendices }}<br>
+                    <strong>Fecha de Inicio:</strong> {{ curso.fecha_inicio|date:"d/m/Y" }}<br>
+                    <strong>Fecha de Fin:</strong> {{ curso.fecha_fin|date:"d/m/Y" }}<br>
+                    <strong>Horario:</strong> {{ curso.horario }}<br>
+                    <strong>Aula:</strong> {{ curso.aula }}<br>
+                    <strong>Cupos Máximos:</strong> {{ curso.cupos_maximos }}<br>                        
+                </p>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+        <a href="/cursos" class="btn btn-secondary">Volver a Cursos</a>
+    </form>                        
+{% endblock %}                                      

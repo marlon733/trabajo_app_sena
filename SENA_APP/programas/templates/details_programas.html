@@ -1,46 +1,147 @@
 {% extends "master.html" %}
 
 {% block title %}
-  Details about {{ myprograma.nombre }} {{ myprograma.apellido}}
+  Detalles del Programa - {{ myprograma.nombre }}
 {% endblock %}
 
 {% block content %}
 
-<h1>{{    myprograma.nombre }} {{    myprograma.apellido }}</h1>
- <div>
-    <span class="inf">modalidad</span>
-   <span class="value"> {{ myprograma.modalidad}}</span>
-</div> 
+<style>
+    /* Estilos de Tarjeta (Card Design) - Igual al de Instructores */
+    .card-container {
+        max-width: 700px;
+        margin: 40px auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 40px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
- <div>
-    <span class="inf"> Duracion:</span>
-   <span class="value"> {{ myprograma.duracion_meses }}</span>
-</div> 
+    .card-header {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #39A900; /* Verde SENA */
+        padding-bottom: 15px;
+    }
 
+    .card-header h1 {
+        margin: 0;
+        color: #333;
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
 
- <div>
-    <span class="inf"> El nombre es:</span>
-   <span class="value"> {{ myprograma.nombre}}</span>
- </div> 
+    .card-subtitle {
+        color: #666;
+        font-size: 1rem;
+        margin-top: 8px;
+        font-weight: 500;
+    }
 
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+    }
 
- <div>
-    <span class="inf"> Duracion de meses:</span>
-   <span class="value"> {{    myprograma.duracion_horas }}</span>
-</div> 
+    /* Estilo especial para bloques de texto largo */
+    .detail-block {
+        padding: 15px 0;
+        border-bottom: 1px solid #eee;
+    }
 
-<div>
-    <span class="inf"> La fecha de nacimiento </span>
-   <span class="value"> {{ myprograma.fecha_vinculacion }}</span>
-</div> 
- <div>
-    <span class="inf">COMPETENCIA</span>
-   <span class="value"> {{ myprograma.competencias}}</span>
-    <div>
-    <span class="inf"> DESCRIPCION</span>
-   <span class="value"> {{ myprograma.descripcion }}</span>
-</div> 
- 
+    .inf {
+        font-weight: bold;
+        color: #555;
+        font-size: 15px;
+    }
 
-<p> <a href="/programas">PROGRAMAS</a></p>
+    .value {
+        color: #000;
+        font-weight: 500;
+        text-align: right;
+    }
+    
+    .block-value {
+        display: block;
+        margin-top: 8px;
+        color: #333;
+        line-height: 1.5;
+        text-align: justify;
+    }
+
+    .btn-back {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: #39A900; /* Verde SENA */
+        color: white;
+        padding: 12px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 30px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    .btn-back:hover {
+        background-color: #2e8b00;
+    }
+</style>
+
+<div class="card-container">
+    <div class="card-header">
+        <h1>{{ myprograma.nombre }}</h1>
+        <div class="card-subtitle">Código: {{ myprograma.codigo }}</div>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Nivel de Formación:</span>
+        <span class="value">{{ myprograma.get_nivel_formacion_display }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Modalidad:</span>
+        <span class="value">{{ myprograma.get_modalidad_display }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Duración (Meses):</span>
+        <span class="value">{{ myprograma.duracion_meses }} meses</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Intensidad Horaria:</span>
+        <span class="value">{{ myprograma.duracion_horas }} horas</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Fecha de Creación:</span>
+        <span class="value">{{ myprograma.fecha_creacion }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Centro de Formación:</span>
+        <span class="value">{{ myprograma.centro_formacion }}</span>
+    </div>
+
+    <div class="detail-block">
+        <span class="inf">Competencias a Desarrollar:</span>
+        <span class="block-value">{{ myprograma.competencias }}</span>
+    </div>
+
+    <div class="detail-block" style="border-bottom: none;">
+        <span class="inf">Descripción del Programa:</span>
+        <span class="block-value">{{ myprograma.descripcion }}</span>
+    </div>
+   
+    <a href="/programas" class="btn-back"> Volver a Programas</a>
+</div>
+    <a href="{% url 'programas:agregar_programa' %}" class="btn-back">Agregar Programa</a>
+    <a href="{% url 'programas:editar_programa' myprograma.id %}" class="btn-back"> Editar programa</a>
+    <a href="{% url 'programas:eliminar_programa' myprograma.id%}" class="btn-back">Elimarnar Programa</a>
 {% endblock %}

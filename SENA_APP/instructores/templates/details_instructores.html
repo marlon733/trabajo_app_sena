@@ -1,46 +1,125 @@
 {% extends "master.html" %}
 
 {% block title %}
-  Details about {{myinstructor.nombre }} {{myinstructor.apellido}}
+  Detalles del Instructor {{ myinstructor.nombre }}
 {% endblock %}
 
 {% block content %}
 
-<h1>{{   myinstructor.nombre }} {{   myinstructor.apellido }}</h1>
- <div>
-    <span class="inf"> documento de identidad</span>
-   <span class="value"> {{myinstructor.documento_identidad }}</span>
-</div> 
+<style>
+    /* Estilos de Tarjeta (Card Design) */
+    .card-container {
+        max-width: 600px;
+        margin: 40px auto;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        padding: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
- <div>
-    <span class="inf"> El telefono es:</span>
-   <span class="value"> {{myinstructor.telefono }}</span>
-</div> 
+    .card-header {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #39A900; /* Verde SENA */
+        padding-bottom: 15px;
+    }
 
+    .card-header h1 {
+        margin: 0;
+        color: #333;
+        font-size: 24px;
+        text-transform: uppercase;
+    }
 
- <div>
-    <span class="inf"> El nombre es:</span>
-   <span class="value"> {{myinstructor.nombre}}</span>
- </div> 
+    .card-subtitle {
+        color: #666;
+        font-size: 0.9rem;
+        margin-top: 5px;
+    }
 
+    .detail-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid #eee;
+    }
 
- <div>
-    <span class="inf"> Imail del usuario es:</span>
-   <span class="value"> {{   myinstructor.correo }}</span>
-</div> 
+    .detail-row:last-child {
+        border-bottom: none;
+    }
 
-<div>
-    <span class="inf"> La fecha de nacimiento </span>
-   <span class="value"> {{myinstructor.fecha_vinculacion }}</span>
-</div> 
- <div>
-    <span class="inf"> ciudad</span>
-   <span class="value"> {{myinstructor.ciudad }}</span>
-    <div>
-    <span class="inf"> Programa que pertenece</span>
-   <span class="value"> {{myinstructor.direccion }}</span>
-</div> 
- 
+    .inf {
+        font-weight: bold;
+        color: #555;
+        font-size: 15px;
+    }
 
-<p> <a href="/instructores">INSTRUCTORES</a></p>
+    .value {
+        color: #000;
+        font-weight: 500;
+        text-align: right;
+    }
+
+    .btn-back {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: #39A900;
+        color: white;
+        padding: 12px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 25px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    .btn-back:hover {
+        background-color: #2e8b00;
+    }
+</style>
+
+<div class="card-container">
+    <div class="card-header">
+        <h1>{{ myinstructor.nombre }} {{ myinstructor.apellido }}</h1>
+        <div class="card-subtitle">Perfil de Instructor</div>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Documento de Identidad:</span>
+        <span class="value">{{ myinstructor.documento_identidad }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Teléfono:</span>
+        <span class="value">{{ myinstructor.telefono }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Correo Electrónico:</span>
+        <span class="value">{{ myinstructor.correo }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Fecha de Vinculación:</span>
+        <span class="value">{{ myinstructor.fecha_vinculacion }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Ciudad:</span>
+        <span class="value">{{ myinstructor.ciudad }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Dirección:</span>
+        <span class="value">{{ myinstructor.direccion }}</span>
+    </div>
+
+    <a href="/instructores" class="btn-back">← Volver a Instructores</a>
+</div>
+  <a href="{% url 'instructores:agregar_instructor' %}" class="btn-back">Agregar Instructor</a>
+  <a href="{% url 'instructores:editar_instructor' myinstructor.id %}" class="btn-back"> Editar Instructor</a>
+  <a href="{% url 'instructores:eliminar_instructor' myinstructor.id %}" class="btn-back">Eliminar Instructor</a>
 {% endblock %}

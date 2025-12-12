@@ -1,47 +1,123 @@
 {% extends "master.html" %}
 
 {% block title %}
-  Details about {{ myaprendiz.nombre }} {{ myaprendiz.apellido }}
+  Detalles de {{ myaprendiz.nombre }}
 {% endblock %}
 
 {% block content %}
 
-<h1>{{ myaprendiz.nombre }} {{ myaprendiz.apellido }}</h1>
- <div>
-    <span class="inf"> documento de identidad</span>
-   <span class="value"> {{ myaprendiz.documento_identificacion}}</span>
-</div> 
+<style>
+    /* Estilos para esta página específica */
+    .card-container {
+        max-width: 600px; /* Ancho máximo de la tarjeta */
+        margin: 40px auto; /* Centrado en la pantalla */
+        background-color: #ffffff;
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Sombra suave */
+        padding: 30px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
- <div>
-    <span class="inf"> El telefono es:</span>
-   <span class="value"> {{ myaprendiz.telefono }}</span>
-</div> 
+    .card-header {
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #39A900; /* Verde SENA */
+        padding-bottom: 15px;
+    }
 
+    .card-header h1 {
+        margin: 0;
+        color: #333;
+        font-size: 24px;
+        text-transform: uppercase;
+    }
 
- <div>
-    <span class="inf"> El nombre es:</span>
-   <span class="value"> {{ myaprendiz.nombre}}</span>
-</div> 
+    .detail-row {
+        display: flex; /* Para poner etiqueta y valor en la misma linea */
+        justify-content: space-between; /* Uno a la izq, otro a la derecha */
+        padding: 12px 0;
+        border-bottom: 1px solid #eee; /* Línea divisoria gris clara */
+    }
 
+    .detail-row:last-child {
+        border-bottom: none;
+    }
 
- <div>
-    <span class="inf"> Imail del usuario es:</span>
-   <span class="value"> {{ myaprendiz.email }}</span>
-</div> 
+    .inf {
+        font-weight: bold;
+        color: #555;
+        font-size: 15px;
+    }
 
+    .value {
+        color: #000;
+        font-weight: 500;
+        text-align: right;
+    }
 
- <div>
-    <span class="inf"> La fecha de nacimiento </span>
-   <span class="value"> {{ myaprendiz.fecha_nacimiento }}</span>
-</div> 
- <div>
-    <span class="inf"> ciudad</span>
-   <span class="value"> {{ myaprendiz.ciudad }}</span>
-    <div>
-    <span class="inf"> Programa que pertenece</span>
-   <span class="value"> {{ myaprendiz.programa }}</span>
-</div> 
- 
+    .btn-back {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background-color: #39A900; /* Verde SENA */
+        color: white;
+        padding: 12px;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 25px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
 
-<p> <a href="/aprendices">aprendices</a></p>
+    .btn-back:hover {
+        background-color: #2e8b00; /* Verde más oscuro al pasar mouse */
+    }
+</style>
+
+<div class="card-container">
+    <div class="card-header">
+        <h1>{{ myaprendiz.nombre }} {{ myaprendiz.apellido }}</h1>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Documento de Identidad:</span>
+        <span class="value">{{ myaprendiz.documento_identificacion }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Teléfono:</span>
+        <span class="value">{{ myaprendiz.telefono }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Nombre Completo:</span>
+        <span class="value">{{ myaprendiz.nombre }} {{ myaprendiz.apellido }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Email:</span>
+        <span class="value">{{ myaprendiz.email }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Fecha de Nacimiento:</span>
+        <span class="value">{{ myaprendiz.fecha_nacimiento }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Ciudad:</span>
+        <span class="value">{{ myaprendiz.ciudad }}</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="inf">Programa de Formación:</span>
+        <span class="value">{{ myaprendiz.programa }}</span>
+    </div>
+
+    <a href="/aprendices" class="btn-back">← Volver a la lista</a>
+</div>
+
+  <a href="{% url 'aprendices:agregar_aprendiz' %}" class="btn-back">Agregar Instructor</a>
+  <a href="{% url 'aprendices:editar_aprendiz' myaprendiz.id %}" class="btn-back"> Editar Instructor</a>
+  <a href="{% url 'aprendices:eliminar_aprendiz' myaprendiz.id %}" class="btn-back">Eliminar Instructor</a>
 {% endblock %}

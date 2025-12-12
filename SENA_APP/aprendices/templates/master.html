@@ -28,7 +28,7 @@
     .navbar {
         background-color: #ffffff;
         box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-        padding: 1.5rem 2rem;
+        padding: 1rem 2rem; /* Ajusté un poco el padding */
         position: sticky;
         top: 0;
         z-index: 1000;
@@ -40,6 +40,21 @@
         color: #0c6104 !important;
         font-size: 1.5rem;
         transition: color 0.3s ease;
+        /* Flexbox para alinear imagen y texto */
+        display: flex;
+        align-items: center; 
+    }
+
+    /* Estilo para la imagen del logo */
+    .navbar-brand img {
+        height: 50px; /* Tamaño del logo */
+        width: auto;
+        margin-right: 15px; /* Espacio entre imagen y texto */
+        transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover img {
+        transform: scale(1.1); /* Efecto zoom al pasar el mouse */
     }
 
     .navbar-brand:hover {
@@ -186,7 +201,10 @@
 
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="/">SENA APP</a>
+            <a class="navbar-brand" href="/">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Sena_Colombia_logo.svg/1200px-Sena_Colombia_logo.svg.png" alt="Logo SENA">
+                SENA APP
+            </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -199,6 +217,7 @@
                     <a class="nav-link" href="/instructores">Instructores</a>
                     <a class="nav-link" href="/admin">ADMIN</a>
                     <a class="nav-link" href="/programas">programas</a>
+                    <a class="nav-link" href="/cursos">Cursos</a>
 
                 </div>
             </div>
